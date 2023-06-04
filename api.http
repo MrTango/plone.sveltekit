@@ -1,0 +1,79 @@
+@baseUrl = http://localhost:8080/Plone
+
+###
+
+get {{baseUrl}}/events/aggregator
+
+###
+
+get {{baseUrl}}/events/termin-1
+
+###
+
+get {{baseUrl}}/produkte
+
+
+###
+
+get {{baseUrl}}/produkte/neue-produkte/unseren-neuen-produkte?expand=contextnavigation
+
+
+###
+
+get {{baseUrl}}/@vocabularies
+Authorization: Basic admin:admin
+
+###
+
+get {{baseUrl}}/@vocabularies/collective.taxonomy.termin_art
+Authorization: Basic admin:admin
+
+
+###
+
+post {{baseUrl}}/@querystring-search
+content-type: application/json
+
+{
+    "query": [
+        {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+                "Event"
+            ]
+        }
+    ]
+}
+
+###
+
+get {{baseUrl}}/@controlpanels
+Authorization: Basic admin:admin
+
+###
+
+get {{baseUrl}}/@controlpanels/date-and-time
+Authorization: Basic admin:admin
+
+###
+
+get {{baseUrl}}/@registry/plone.portal_timezone
+Authorization: Basic admin:admin
+
+
+###
+
+get {{baseUrl}}/events/@search?portal_type=Event&sort_on=start&sort_order=ascending&metadata_fields=start&metadata_fields=end&metadata_fields=effective&metadata_fields=UID
+
+###
+get {{baseUrl}}/events/@search?portal_type=Event&start.query=2022-01-03&start.range=max&sort_on=start&sort_order=ascending&metadata_fields=start&metadata_fields=end&metadata_fields=effective
+
+###
+get {{baseUrl}}/events/@search?portal_type=Event&GanttEventRange.start=2022-01-03&GanttEventRange.end=2022-01-09&sort_on=start&sort_order=ascending&metadata_fields=start&metadata_fields=end&metadata_fields=effective
+
+###
+get {{baseUrl}}/events/@search?portal_type=Event&GanttEventRange.query.2022-01-03&GanttEventRange.query=2022-01-09GanttEventRange.range=min:max&sort_on=start&sort_order=ascending&metadata_fields=start&metadata_fields=end&metadata_fields=effective
+
+###
+get {{baseUrl}}/@search?&metadata_fields=start&metadata_fields=end&metadata_fields=effective
