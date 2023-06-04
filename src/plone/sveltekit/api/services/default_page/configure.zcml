@@ -1,0 +1,15 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:plone="http://namespaces.plone.org/plone">
+
+  <adapter factory=".get.DefaultPage" name="default_page"/>
+
+  <plone:service
+    method="GET"
+    for="zope.interface.Interface"
+    factory=".get.DefaultPageGet"
+    name="@default_page"
+    permission="zope2.View"
+    />
+
+</configure>
