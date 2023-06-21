@@ -44,7 +44,7 @@
     <!-- zcml:condition="installed plone.rest" -->
     <!-- layer="plone.sveltekit.interfaces.IPloneSveltekitLayer" -->
   <plone:CORSPolicy
-  allow_origin="http://localhost:5173,http://127.0.0.1:5173,http://localhost,http://[::1],http://[::1]:5173"
+    allow_origin="http://localhost:5173,http://127.0.0.1:5173,http://localhost,http://[::1],http://[::1]:5173,http://sveltekit-prerender"
     allow_methods="DELETE,GET,OPTIONS,PATCH,POST,PUT"
     allow_credentials="true"
     expose_headers="Content-Length,X-My-Header"
