@@ -21,6 +21,7 @@ Status
 ------
 
 Its working for content, supports top navigation and context navigation, as well as breadcrumbs, but is not feature complete in any way.
+For now only public content is supported.
 
 
 Installation
@@ -37,6 +38,34 @@ Install plone.sveltekit by adding it to your buildout::
 
 
 and then running ``bin/buildout``
+
+Frontend
+--------
+
+.. code-block:: shell
+
+    cd resources/frontend4classicui/
+
+create a ``.env`` file with the following content::
+
+    PUBLIC_FRONTEND_BASE_URL=http://localhost:5173
+    PUBLIC_PLONE_BASE_URL=http://127.0.0.1:8080/Plone
+
+to install dependencies and star the dev server, run:
+
+.. code-block:: shell
+
+    cd resources/frontend4classicui/
+    npm install
+    npm run dev
+
+to build a static build of the Plone website:
+
+.. code-block:: shell
+
+    npm run build
+
+This will create a static build of all public Plone content in the ``build`` folder.
 
 
 Authors
