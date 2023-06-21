@@ -14,28 +14,15 @@
 </script>
 
 <svelte:head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="/assets/css/main.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </svelte:head>
 
-<header>
-	<div class="navigation">
-		<div class="container">
-			<Navigation {navigation} />
-		</div>
-	</div>
-	<nav name="breadcrumbs">
-		<div class="container">
-			<Breadcrumbs {breadcrumbs} />
-		</div>
-	</nav>
-</header>
-
 <main class="container">
+	{#if $page.data.fullwidth === undefined}
+		<aside>
+			<Contextnav contextNav={data.contextnavigation} />
+		</aside>
+	{/if}
+
 	<article>
 		<slot />
 	</article>
@@ -48,7 +35,7 @@
 		grid-template-rows: auto;
 		grid-template-areas:
 			'breadcrumbs breadcrumbs breadcrumbs'
-			'content content content';
+			'sidebar content content';
 	}
 	header {
 		background-color: coral;
@@ -61,6 +48,12 @@
 		grid-area: breadcrumbs;
 		--font-size: 0.8rem;
 		background-color: ghostwhite;
+	}
+	aside {
+		grid-area: sidebar;
+		/* margin: var(--block-spacing-vertical) 0; */
+		padding: var(--block-spacing-vertical) var(--block-spacing-horizontal)
+			var(--block-spacing-vertical) 0;
 	}
 	article {
 		grid-area: content;
