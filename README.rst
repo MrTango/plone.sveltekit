@@ -55,7 +55,6 @@ to install dependencies and star the dev server, run:
 
 .. code-block:: shell
 
-    cd resources/frontend4classicui/
     npm install
     npm run dev
 
